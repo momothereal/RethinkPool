@@ -24,7 +24,7 @@ class ConnectionResource(object):
 
     def release(self):
         if self._conn:
-            logger.info("release a connection")
+            logger.debug("release a connection")
             self._queue.put_nowait(self._conn)
             self._conn = None
 
@@ -72,9 +72,9 @@ class RethinkPool(object):
         :return: ConnectionResource object
         """
         if self._queue.empty() and self.current_conns < self._queue.maxsize:
-            logger.info("create a new connection")
+            logger.debug("create a new connection")
             conn = self._create_connection()
         else:
-            logger.info("reuse a connection")
+            logger.debug("reuse a connection")
             conn = self._queue.get(True, self.get_timeout)
         return ConnectionResource(self._queue, conn)
