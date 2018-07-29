@@ -5,9 +5,9 @@ except ImportError:
 
 setup(
     name='RethinkPool',
-    version='0.4.1',
+    version='0.4.2',
     packages=['rethinkpool'],
-    url='https://github.com/lucidfrontier45/RethinkPool',
+    url='https://github.com/momothereal/RethinkPool',
     license='Apache License v2',
     author='Shiqiao Du',
     author_email='lucidfrontier.45@gmail.com',
